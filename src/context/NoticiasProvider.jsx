@@ -26,6 +26,7 @@ const NoticiasProvider = ({ children }) => {
       const { data } = await axios.get(url)
       setNoticias(data.articles)
       setTotalNoticias(data.totalResults)
+      console.log(import.meta.env.VITE_API_KEY)
     }
     consultarAPI()
   }, [pagina])
