@@ -22,11 +22,10 @@ const NoticiasProvider = ({ children }) => {
 
   useEffect(() => {
     const consultarAPI = async () => {
-      const url = `https://newsapi.org/v2/top-headlines?country=co&category=${categoria}&pageSize=10&page=${pagina}&apiKey=${import.meta.env.VITE_API_KEY}`
+      const url = `http://newsapi.org/v2/top-headlines?country=co&category=${categoria}&pageSize=10&page=${pagina}&apiKey=${import.meta.env.VITE_API_KEY}`
       const { data } = await axios.get(url)
       setNoticias(data.articles)
       setTotalNoticias(data.totalResults)
-      console.log(import.meta.env.VITE_API_KEY)
     }
     consultarAPI()
   }, [pagina])
